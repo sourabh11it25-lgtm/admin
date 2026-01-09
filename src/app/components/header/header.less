@@ -1,0 +1,239 @@
+@import '_variables.less';
+
+// Header Main Container
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid @border-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: @spacing-sm @spacing-sm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: @spacing-md;
+
+  @media (max-width: @md) {
+    padding: @spacing-xs @spacing-xs;
+  }
+}
+
+// Logo Section
+.header-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    outline: 2px solid @primary-color;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: @primary-color;
+
+  @media (max-width: @md) {
+    font-size: 1.25rem;
+  }
+}
+
+// Hamburger Menu (Mobile)
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 4px;
+  z-index: 101;
+
+  @media (max-width: @md) {
+    display: flex;
+  }
+
+  &:focus {
+    outline: 2px solid @primary-color;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &.active .hamburger-line {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+  }
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 3px;
+  background-color: @text-color;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+// Navigation Menu
+.header-nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  @media (max-width: @md) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: @spacing-sm;
+    border-bottom: 1px solid @border-color;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.active {
+      max-height: 400px;
+    }
+  }
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: @spacing-md;
+  align-items: center;
+
+  @media (max-width: @md) {
+    flex-direction: column;
+    gap: @spacing-sm;
+    width: 100%;
+
+    .nav-item {
+      width: 100%;
+    }
+  }
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: @secondary-color;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+
+  @media (max-width: @md) {
+    padding: 0.75rem 0;
+    width: 100%;
+  }
+
+  &:hover {
+    color: @primary-color;
+    background-color: rgba(25, 118, 210, 0.08);
+
+    @media (max-width: @md) {
+      background-color: @background-color;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid @primary-color;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    color: darken(@primary-color, 10%);
+  }
+}
+
+// Header Actions (Desktop)
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: @spacing-md;
+  flex-shrink: 0;
+
+  @media (max-width: @md) {
+    display: none;
+  }
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+
+  &:hover {
+    background-color: @background-color;
+  }
+
+  &:focus {
+    outline: 2px solid @primary-color;
+    outline-offset: 2px;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Responsive adjustments for very small screens
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.75rem 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .nav-list {
+    gap: 0.25rem;
+  }
+}
