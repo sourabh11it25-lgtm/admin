@@ -1,0 +1,45 @@
+// Responsive breakpoints
+@sm: 576px;
+@md: 768px;
+@lg: 992px;
+@xl: 1200px;
+@xxl: 1400px;
+
+// Colors
+@primary-color: #1976d2;
+@secondary-color: #424242;
+@text-color: #212121;
+@border-color: #e0e0e0;
+@background-color: #fafafa;
+
+// Spacing
+@spacing-xs: 0.5rem;
+@spacing-sm: 1rem;
+@spacing-md: 1.5rem;
+@spacing-lg: 2rem;
+@spacing-xl: 3rem;
+
+// Proper LESS mixin syntax with parameters
+.respond-to-sm(@rules) {
+  @media (max-width: @sm) {
+    @rules();
+  }
+}
+
+.respond-to-md(@rules) {
+  @media (max-width: @md) {
+    @rules();
+  }
+}
+
+.respond-to-lg(@rules) {
+  @media (min-width: @lg) {
+    @rules();
+  }
+}
+
+.media-xl(@rules) {
+  @media (min-width: @xl) {
+    @rules();
+  }
+}

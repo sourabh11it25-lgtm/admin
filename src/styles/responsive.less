@@ -1,0 +1,83 @@
+// Global responsive utilities
+@import '_variables.less';
+
+html {
+  font-size: 16px;
+  
+  @media (max-width: @md) {
+    font-size: 14px;
+  }
+  
+  @media (max-width: @sm) {
+    font-size: 13px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: @text-color;
+  background-color: @background-color;
+}
+
+// Container utilities
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 @spacing-sm;
+  
+  @media (max-width: @md) {
+    padding: 0 @spacing-xs;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 @spacing-sm;
+  
+  @media (max-width: @md) {
+    padding: 0 @spacing-xs;
+  }
+}
+
+// Responsive flex utilities
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Show/hide utilities
+.hide-mobile {
+  @media (max-width: @md) {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @media (min-width: @lg) {
+    display: none !important;
+  }
+}
+
+// Responsive text utilities
+.text-responsive {
+  font-size: clamp(1rem, 5vw, 3rem);
+}

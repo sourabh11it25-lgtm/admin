@@ -1,0 +1,56 @@
+<header class="header" role="banner">
+  <div class="header-container">
+    <!-- Logo Section -->
+    <div class="header-logo">
+      <a href="/" class="logo-link" aria-label="Admin Home">
+        <span class="logo-text">Admin</span>
+      </a>
+    </div>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <button
+      class="menu-toggle"
+      [class.active]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation menu"
+      aria-expanded="isMobileMenuOpen()"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav
+      class="header-nav"
+      [class.active]="isMobileMenuOpen()"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#dashboard" class="nav-link" (click)="closeMobileMenu()">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="#users" class="nav-link" (click)="closeMobileMenu()">Users</a>
+        </li>
+        <li class="nav-item">
+          <a href="#settings" class="nav-link" (click)="closeMobileMenu()">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a href="#profile" class="nav-link" (click)="closeMobileMenu()">Profile</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- User Actions (Desktop) -->
+    <div class="header-actions">
+      <button class="action-button" aria-label="User notifications">
+        <span class="icon">🔔</span>
+      </button>
+      <button class="action-button" aria-label="User account">
+        <span class="icon">👤</span>
+      </button>
+    </div>
+  </div>
+</header>
